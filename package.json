@@ -1,0 +1,28 @@
+{
+  "name": "outlook-vorlagen",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Outlook-Add-in für E-Mail-Textvorlagen mit Platzhaltern",
+  "scripts": {
+    "certs": "office-addin-dev-certs install",
+    "dev": "node scripts/manifest.mjs https://localhost:3000 && vite",
+    "build": "tsc --noEmit && vite build && node scripts/manifest.mjs",
+    "manifest": "node scripts/manifest.mjs",
+    "validate": "office-addin-manifest validate dist/manifest.xml",
+    "test": "vitest run",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@azure/msal-browser": "^5.29.1",
+    "dompurify": "^3.4.17"
+  },
+  "devDependencies": {
+    "@types/office-js": "^1.0.617",
+    "office-addin-dev-certs": "^3.0.1",
+    "office-addin-manifest": "^3.0.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.0"
+  }
+}
