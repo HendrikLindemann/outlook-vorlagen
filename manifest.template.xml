@@ -4,7 +4,7 @@
            xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
            xsi:type="MailApp">
   <Id>7c1f6c0e-3b52-4d0a-9a41-5e8d2f4b6a90</Id>
-  <Version>1.0.1.0</Version>
+  <Version>1.0.2.0</Version>
   <ProviderName>Privat</ProviderName>
   <DefaultLocale>de-DE</DefaultLocale>
   <DisplayName DefaultValue="Textvorlagen"/>
@@ -46,6 +46,7 @@
     <Hosts>
       <Host xsi:type="MailHost">
         <DesktopFormFactor>
+          <FunctionFile resid="Commands.Url"/>
           <ExtensionPoint xsi:type="MessageComposeCommandSurface">
             <OfficeTab id="TabDefault">
               <Group id="vorlagenGroup">
@@ -78,6 +79,7 @@
         <bt:Image id="Icon.80" DefaultValue="{{BASE_URL}}/assets/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
+        <bt:Url id="Commands.Url" DefaultValue="{{BASE_URL}}/commands.html"/>
         <bt:Url id="Taskpane.Url" DefaultValue="{{BASE_URL}}/index.html"/>
       </bt:Urls>
       <bt:ShortStrings>
