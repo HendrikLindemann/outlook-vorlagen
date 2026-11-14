@@ -4,7 +4,7 @@
            xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
            xsi:type="MailApp">
   <Id>7c1f6c0e-3b52-4d0a-9a41-5e8d2f4b6a90</Id>
-  <Version>1.0.0.0</Version>
+  <Version>1.0.1.0</Version>
   <ProviderName>Privat</ProviderName>
   <DefaultLocale>de-DE</DefaultLocale>
   <DisplayName DefaultValue="Textvorlagen"/>
@@ -24,15 +24,17 @@
     </Sets>
   </Requirements>
   <FormSettings>
-    <Form xsi:type="ItemEdit">
+    <!-- Nur für sehr alte Outlook-Versionen ohne Add-in-Befehle; aufgebaut wie in den Microsoft-Beispielen. -->
+    <Form xsi:type="ItemRead">
       <DesktopSettings>
         <SourceLocation DefaultValue="{{BASE_URL}}/index.html"/>
+        <RequestedHeight>250</RequestedHeight>
       </DesktopSettings>
     </Form>
   </FormSettings>
   <Permissions>ReadWriteItem</Permissions>
   <Rule xsi:type="RuleCollection" Mode="Or">
-    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Edit"/>
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read"/>
   </Rule>
   <DisableEntityHighlighting>false</DisableEntityHighlighting>
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
