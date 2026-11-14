@@ -1,0 +1,27 @@
+# Prüft das Manifest beim Validierungsdienst von Microsoft.
+name: Validate manifest
+
+on:
+  push:
+    branches: [claude/manifest-validate]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          ADDIN_BASE_URL: https://hendriklindemann.github.io/outlook-vorlagen
+      - run: npx office-addin-manifest validate dist/manifest.xml
+      - run: npx office-addin-manifest validate -p dist/manifest.xml
+        if: always()
