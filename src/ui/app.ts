@@ -5,8 +5,13 @@ import type { Store } from "../storage/store";
 import { renderEditor } from "./editor";
 import { renderFill } from "./fill";
 import { renderList } from "./list";
+import { renderTransfer } from "./transfer";
 
-export type View = { name: "list" } | { name: "fill"; template: Template } | { name: "editor"; template?: Template };
+export type View =
+  | { name: "list" }
+  | { name: "fill"; template: Template }
+  | { name: "editor"; template?: Template }
+  | { name: "transfer" };
 
 export interface App {
   host: Host;
@@ -35,7 +40,9 @@ export function createApp(host: Host, store: Store, root: HTMLElement): App {
           ? renderList(app)
           : view.name === "fill"
             ? renderFill(app, view.template)
-            : renderEditor(app, view.template),
+            : view.name === "transfer"
+              ? renderTransfer(app)
+              : renderEditor(app, view.template),
       );
       root.scrollTop = 0;
     },

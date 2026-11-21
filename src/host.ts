@@ -14,6 +14,9 @@ export interface Host {
   setSubject(subject: string): Promise<void>;
   insertHtml(html: string): Promise<void>;
   getBodyHtml(): Promise<string>;
+  /** true, wenn sich Dateien an die E-Mail anhängen lassen (Mailbox 1.8). */
+  canAttach: boolean;
+  addAttachment(fileName: string, base64: string): Promise<void>;
   roamingGet(key: string): unknown;
   roamingSet(key: string, value: unknown): Promise<void>;
 }
@@ -54,6 +57,10 @@ function outlookHost(): Host {
     insertHtml: (html) =>
       promisify<void>((cb) => item().body.setSelectedDataAsync(html, { coercionType: Office.CoercionType.Html }, cb)),
     getBodyHtml: () => promisify<string>((cb) => item().body.getAsync(Office.CoercionType.Html, cb)),
+    canAttach: Office.context.requirements.isSetSupported("Mailbox", "1.8"),
+    addAttachment: async (fileName, base64) => {
+      await promisify<string>((cb) => item().addFileAttachmentFromBase64Async(base64, fileName, cb));
+    },
     roamingGet: (key) => settings.get(key),
     roamingSet: (key, value) => {
       if (value === undefined) settings.remove(key);
@@ -77,6 +84,11 @@ function demoHost(): Host {
       (window as unknown as { __inserted?: string }).__inserted = html;
     },
     getBodyHtml: async () => "<p>Beispieltext aus der <b>aktuellen E-Mail</b>.</p>",
+    canAttach: true,
+    addAttachment: async (fileName, base64) => {
+      const w = window as unknown as { __attachments?: { fileName: string; base64: string }[] };
+      (w.__attachments ??= []).push({ fileName, base64 });
+    },
     roamingGet: (key) => {
       try {
         const raw = localStorage.getItem(KEY + key);

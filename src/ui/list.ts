@@ -94,6 +94,11 @@ export function renderList(app: App): HTMLElement {
       }),
     listEl,
     empty,
-    h("footer", {}, STORAGE_LABEL[app.store.backend.kind]),
+    h(
+      "footer",
+      {},
+      h("button", { class: "link", onClick: () => app.go({ name: "transfer" }) }, "Vorlagen exportieren / importieren"),
+      h("div", {}, STORAGE_LABEL[app.store.backend.kind]),
+    ),
   );
 }

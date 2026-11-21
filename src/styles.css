@@ -20,7 +20,7 @@ h1 { font-size: 16px; font-weight: 600; margin: 0; flex: 1; overflow: hidden; te
 h2 { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin: 8px 0 0; }
 p { margin: 0; }
 .muted { color: var(--muted); font-size: 12px; }
-footer { margin-top: auto; padding-top: 12px; color: var(--muted); font-size: 12px; }
+footer { margin-top: auto; padding-top: 12px; color: var(--muted); font-size: 12px; display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
 
 button, input, select { font: inherit; color: inherit; }
 button { border: 1px solid var(--line); background: var(--bg); border-radius: 4px; padding: 5px 12px; cursor: pointer; }
@@ -74,3 +74,11 @@ input[type="text"], input[type="search"], input[type="url"], select {
 }
 #toast.show { opacity: 1; }
 #toast.error { background: var(--danger); }
+
+.checklist { display: flex; flex-direction: column; gap: 2px; max-height: 40vh; overflow-y: auto; border: 1px solid var(--line); border-radius: 4px; padding: 6px 8px; }
+.checklist label { display: flex; gap: 6px; align-items: flex-start; padding: 3px 0; font-size: 13px; }
+.checklist .tag { margin-left: auto; font-size: 11px; color: var(--muted); white-space: nowrap; }
+.checklist .tag.neu { color: #0e700e; }
+.checklist .tag.geaendert { color: #8a5a00; }
+.file-input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.view-part { display: flex; flex-direction: column; gap: 8px; }
