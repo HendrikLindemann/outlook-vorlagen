@@ -12,7 +12,10 @@ export function createTokenProvider(clientId: string, authority: string) {
 
   return async function getToken(interactive: boolean): Promise<string> {
     pca ??= import("@azure/msal-browser").then((msal) =>
-      msal.createNestablePublicClientApplication({ auth: { clientId, authority } }),
+      msal.createNestablePublicClientApplication({
+        auth: { clientId, authority },
+        cache: { cacheLocation: "localStorage" },
+      }),
     );
     const app = await pca;
     try {
