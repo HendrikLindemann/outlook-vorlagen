@@ -9,6 +9,7 @@ Outlook-Add-in (Office.js) für formatierte E-Mail-Textvorlagen mit Platzhaltern
 - Editor mit Fett, Kursiv, Unterstrichen, Listen, Links; alternativ den Text der aktuellen E-Mail übernehmen.
 - Platzhalter werden beim Einfügen gefüllt, mit Vorschau.
 - Die gewählte Anrede wird je E-Mail-Adresse gemerkt.
+- Export ausgewählter Vorlagen als Anhang an die aktuelle E-Mail oder als Datei; Import mit Vorschau, ohne vorhandene Vorlagen zu überschreiben. Gemerkte Anreden werden nicht exportiert.
 - Speicherung im OneDrive-App-Ordner (`Apps/<Name der App>/vorlagen.json`) oder, ohne Einrichtung, im Postfach (maximal 32 KB).
 
 ## Platzhalter
