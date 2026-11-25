@@ -83,5 +83,5 @@ else {
 
 if ($PSCmdlet.ShouldProcess($ziel, "$Name als Organisations-Add-in installieren")) {
     New-App @params | Format-Table DisplayName, AppVersion, Enabled, ProvidedTo, DefaultStateForUser -AutoSize
-    Write-Host "Installiert für: $ziel. Sichtbarkeit bei allen Benutzern: einige Stunden bis zwei Tage."
+    Write-Host "Installiert für: $ziel. Bei allen Benutzern sichtbar nach bis zu 72 Stunden (auch für Updates)."
 }

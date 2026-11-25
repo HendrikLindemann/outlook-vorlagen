@@ -69,7 +69,8 @@ Vor jedem Push: `npm test` und `npm run build` müssen grün sein (laufen auch i
    ```
    Die Ausgabe muss die neue `AppVersion` zeigen, sonst hat GitHub Pages noch die alte Datei – zwei Minuten warten,
    wiederholen.
-5. Sichtbarkeit bei allen kann Stunden bis zwei Tage dauern – nicht vorschnell erneut installieren.
+5. Neue Add-ins und Updates erreichen die Postfächer laut Microsoft erst nach **bis zu 72 Stunden** (auch
+   `Get-App -Mailbox` zeigt so lange den alten Stand). In dieser Zeit nichts neu installieren – das startet die Frist neu.
 
 **Graph-Berechtigungen** zusätzlich: in Entra unter App-Registrierungen › API-Berechtigungen ergänzen und
 Administratorzustimmung erteilen; `SCOPES` in `src/storage/auth.ts` anpassen.
