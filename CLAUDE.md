@@ -83,7 +83,8 @@ Administratorzustimmung erteilen; `SCOPES` in `src/storage/auth.ts` anpassen.
 - Eingebettete Bilder in Vorlagen werden nicht unterstützt.
 - Outlook liefert kein Geschlecht; die Anrede wird je E-Mail-Adresse gemerkt.
 
-## Stand (22.11.2026)
+## Stand (26.11.2026)
 
-Version 1.0.2.0 als Organisations-Add-in an alle verteilt. `deploy.yml` auf zwei Jobs umgestellt (Fehler
+Version 1.0.2.0 am 22.11. als Organisations-Add-in an alle verteilt; in den Postfächern erst nach rund 72 Stunden
+angekommen (`Get-App -Mailbox` zeigt 1.0.2.0). `deploy.yml` auf zwei Jobs umgestellt (Fehler
 actions/deploy-pages#451 beim Veröffentlichen im selben Job).
